@@ -70,15 +70,19 @@ file.writeframes(data)
 file.close()
 ```  
 
+After executing the program, the file is generated. Play the file to hear the sound! You will hear a 220 Hz tone for five seconds.  
+
 <center>  
 
 ![220hz sine wave](images/sine_wave_220hz.jpg)  
 
 </center>  
 
+Above shows the WAV file we generated in a free audio editor, Audacity. As we expect, we can see a sine wave frequency of 220 Hz. 
+
 ## The Minor Pentatonic Scale  
 
-a **musical scale** is a series of notes in increasing or decreasing pitch or frequency. A **musical interval** is the difference between two pitches. Usually, all notes in a piece of music are chosen from a particular scale. A **semitone** is a basic building block of a scale and is the smallest musical interval in *western* music. A **tone** is twice the length of a semitone. The **major scale**, one of the most common musical scales, is defined by the interval pattern *tone-tone-semitone-tone-tone-tone-semitone*.  
+The **musical scale** is a series of notes in increasing or decreasing pitch or frequency. A **musical interval** is the difference between two pitches. Usually, all notes in a piece of music are chosen from a particular scale. A **semitone** is a basic building block of a scale and is the smallest musical interval in *western* music. A **tone** is twice the length of a semitone. The **major scale**, one of the most common musical scales, is defined by the interval pattern *tone-tone-semitone-tone-tone-tone-semitone*.  
 
 <center>  
 
