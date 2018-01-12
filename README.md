@@ -87,6 +87,8 @@ The **musical scale** is a series of notes in increasing or decreasing pitch or 
 ## The Main Project  
 In this project, we'll use our friend, Python and its `wave` module to create audio files in the WAV format. We'll also use `numpy` arrays for the Karplus-Strong algorithm and the `deque` class from Python collections to implement the famous ring buffer. Finally, we will play back the WAV files using `pygame`.  
 
+We'll go over each part, then put it all together for a finished product.  
+
 <center>  
 
 ![simulate pluck](images/plucked_string_simulation.jpg)
