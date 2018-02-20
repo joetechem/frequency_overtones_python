@@ -115,7 +115,11 @@ file.writeframes(data)
 file.close()
 ```  
 
-After executing the program, a WAV file is created. Play the file to hear the sound! You will hear a 220 Hz tone for five seconds.  
+After executing the program, a WAV file is created. Play the file to hear the sound! You will hear a 220 Hz tone for five seconds. 
+
+#### To Play this WAV file on UBUNTU (trusty):  
+
+`sudo apt-get install audacious`  
 
 <center>  
 
