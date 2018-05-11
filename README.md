@@ -4,6 +4,8 @@ A small walkthrough on how to generate musical overtones with the Karplus-Strong
 
 *Adapted from Python Playground, by Mahesh Venkitachalam.*  
 
+Provides a step-by-step guide to turning quiet Python program output into an output you can hear!  
+
 ***  
 
 ## Introduction 
@@ -137,11 +139,11 @@ The **musical scale** is a series of notes in increasing or decreasing pitch or 
 
 ***  
 
-# Create the Project: piece-by-piece 
+# Create the Project: slice-by-slice 
 
 In this project, we'll use our friend, Python and its `wave` module to create audio files in the WAV format. We'll also use `numpy` arrays for the Karplus-Strong algorithm and the `deque` class from Python collections to implement the famous ring buffer. Finally, we will play back the WAV files using `pygame`.  
 
-We'll go over each part, then put it all together into a finished product.  
+We'll go over each part (or slice), then put it all together into a finished product.  
 
 ## Implementing the Ring Buffer with deque  
 
@@ -172,7 +174,7 @@ Now, we will begin piecing together our main project. Here are the four pieces w
 3. Play the WAV Files with Pygame  
 4. Create the main() Method  
 
-## Piece #1 - Karplus-Strong Algorithm  
+## Slice 1 - Karplus-Strong Algorithm  
 
 Let's use the `deque` container to implement the Karplus-String algorithm for the ring buffer:  
 
@@ -214,7 +216,7 @@ def generateNote(freq):
 
 * `return samples.tostring()` converts samples to a string for the wave module, which will be used to save this data to a file.  
 
-## Piece #2 - Write the WAV Files  
+## Slice 2 - Write the WAV Files  
 
 Now that we have the audio data, we can write it to a WAV file using the Python `wave` module.  
 
@@ -235,7 +237,7 @@ def writeWAVE(fname, data):
     file.close()
 ```  
 
-## Piece #3 - Play the WAV Files with Pygame  
+## Slice 3 - Play the WAV Files with Pygame  
 
 Using Python `pygame` module, we can play the WAV files that will be created by the algorithm. We will **encapsulate** the code in a `NotePlayer` class.   
 
@@ -264,7 +266,7 @@ class NotePlayer:
         note.play()
 ```  
 
-## Piece #4 - The main() Method    
+## Slice 4 - The main() Method    
 
 Creates the notes and handles different command line options to play the notes.  
 
