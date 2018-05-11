@@ -1,3 +1,7 @@
+"""
+Get the deque
+"""
+
 from collections import deque
 d = deque(range(10))
 print(d)
