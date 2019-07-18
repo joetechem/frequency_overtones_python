@@ -33,13 +33,13 @@ The Karplus-Strong algorithm can simulate the sound of a plucked string by using
 
 The length (N) of the ring buffer is related to the fundamental frequency of vibration according to the equation N =S/*f*, where S is the sampling rate and *f* is the frequency.  
 
-In the beginning of the simulation, the buffer is filled with random values in the ragne [-0.5, 0.5]. Think of this as the representation of the random displacement of a plucked string as it vibrates.
+In the beginning of the simulation, the buffer is filled with random values in the range [-0.5, 0.5]. Think of this as the representation of the random displacement of a plucked string as it vibrates.
 
 We'll use a **samples buffer** to store the intensity of the sound at any certain time. The length of this buffer and the sampling rate determine the length of the sound clip.  
 
 ### The Simulation  
 
-The simulation proceeds until the sample buffer is loaded up in a feedback-style. Think of the samples buffer as a list: [t0, t1, t2, t3...]. To simulate a plucked string, fill a ring buffer with numbers that represent the energy of the wave. The sample buffer, which represents the final sound data, is created by iterating through the ring buffer values. We'll use an **averaging scheme** to update values in the ring ubffer.
+The simulation proceeds until the sample buffer is loaded up in a feedback-style. Think of the samples buffer as a list: [t0, t1, t2, t3...]. To simulate a plucked string, fill a ring buffer with numbers that represent the energy of the wave. The sample buffer, which represents the final sound data, is created by iterating through the ring buffer values. We'll use an **averaging scheme** to update values in the ring buffer.
 
 You would do the following for each step of the simulation:  
 
@@ -61,7 +61,7 @@ In step 1, above, the averaging that happens acts as the *low-pass filter* that 
 
 ### Creating WAV Files  
 
-The *Waveform Audio File Format (WAV)* is used to store audio data. This format is convienent for small audio projects, for it is simple and you do  not need to deal with complex compression techniques.  
+The *Waveform Audio File Format (WAV)* is used to store audio data. This format is convenient for small audio projects, for it is simple and you do  not need to deal with complex compression techniques.  
 
 WAV files consist of a series of bits representing the amplitude of the recorded sound at a given point in time, a.k.a **resolution**. A **sampling rate** is the number of times the audio is read, *or sampled*, every second. For our project, we will use a sampling rate of 44,100 Hz, the same rate used in audio compact discs (CDs).  
 
@@ -73,7 +73,7 @@ A = sin(2π*ft*)
 
 </center>  
 
-Where A is the amplitude of the wave, *f* is the frequency, and *t* is the current time index. Let's rewrite the formula to fir our needs:  
+Where A is the amplitude of the wave, *f* is the frequency, and *t* is the current time index. Let's rewrite the formula to fit our needs:  
 
 <center>  
 
@@ -147,7 +147,7 @@ We'll go over each part (or slice), then put it all together into a finished pro
 
 ## Implementing the Ring Buffer with deque  
 
-Remember, the Karplus-Strong algorithm uses a ring-buffer fo create a musical note. You'll implement the ring ubffer using Python's `deque` container ("deck"), which proveds specialized container data types in an array. You can add or remove elements from the *head* (beginning) or *tail* (end) of a `deque`. This insertion-removal process if a 0(1), or a "constant time" operation. This simply means it will take the same amount of time despite how big the `deque` container might get.  
+Remember, the Karplus-Strong algorithm uses a ring-buffer to create a musical note. You'll implement the ring buffer using Python's `deque` container ("deck"), which provides specialized container data types in an array. You can add or remove elements from the *head* (beginning) or *tail* (end) of a `deque`. This insertion-removal process is a O(1), or a "constant time" operation. This simply means it will take the same amount of time despite how big the `deque` container might get.  
 
 Open up a terminal, then open Python by typing: `python`  
 
@@ -205,12 +205,12 @@ def generateNote(freq):
     return samples.tostring()
 ```  
 
-* `buf = deque([random.random() - 0.5 for i in range(N)])` -- initilaizes the deque with random numbers in the range [-0.5, 0.5].  
+* `buf = deque([random.random() - 0.5 for i in range(N)])` -- initializes the deque with random numbers in the range [-0.5, 0.5].  
 
-* `samples = np.array([0]*nSamples, 'float32')` -- sets up a float array to store the sound smaples. The length of this array matches the sampling rate, which menas the sound clip will be created for one second.  
+* `samples = np.array([0]*nSamples, 'float32')` -- sets up a float array to store the sound samples. The length of this array matches the sampling rate, which means the sound clip will be created for one second.  
 
 * In the `for loop` -- the first element in deque is copied to the samples buffer. 
-    - `buf.append(avg)` and `buf.popleft()` is the low-pass filter attentuation at work!  
+    - `buf.append(avg)` and `buf.popleft()` is the low-pass filter attenuation at work!  
 
 *  `samples = np.array(samples * 32767, 'int16')` -- by multiplying each value by 32,767, the samples array is converted into a 16-bit scheme.  
 
