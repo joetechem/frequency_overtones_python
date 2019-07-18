@@ -121,7 +121,7 @@ After executing the program, a WAV file is created. Play the file to hear the so
 
 #### To Play this WAV file on UBUNTU (trusty):  
 
-`sudo apt-get install audacious`  
+`sudo apt-get install audacity`  
 
 <center>  
 
